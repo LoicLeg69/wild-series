@@ -6,20 +6,20 @@ const { sayWelcome } = require("../../controllers/sayActions");
 
 router.get("/", sayWelcome);
 
-// const { browse } = require("../../controllers/programActions");
+/* ************************************************************************* */
+const categoriesRouter = require("./categories/router");
 
-// router.get("/progam", browse);
+router.use("/categories", categoriesRouter);
 
 /* ************************************************************************* */
-
-const itemsRouter = require("./items/router");
-
-router.use("/items", itemsRouter);
-
 const programsRouter = require("./programs/router");
 
 router.use("/programs", programsRouter);
 
 /* ************************************************************************* */
+const itemsRouter = require("./items/router");
 
+router.use("/items", itemsRouter);
+
+/* ************************************************************************* */
 module.exports = router;
